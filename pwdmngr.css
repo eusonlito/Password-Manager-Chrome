@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+/* Reset */
+
+.pwdmngr-modal *,
+.pwdmngr-modal *:before,
+.pwdmngr-modal *:after {
+    box-sizing: border-box !important;
+}
+
+.pwdmngr-modal *::before,
+.pwdmngr-modal *::after {
+	content: normal !important;
+}
+
+/* Remove default padding */
+.pwdmngr-modal ul[class],
+.pwdmngr-modal ol[class] {
+	padding: 0 !important;
+}
+
+/* Remove default margin */
+.pwdmngr-modal body,
+.pwdmngr-modal h1,
+.pwdmngr-modal h2,
+.pwdmngr-modal h3,
+.pwdmngr-modal h4,
+.pwdmngr-modal p,
+.pwdmngr-modal ul,
+.pwdmngr-modal ol,
+.pwdmngr-modal li,
+.pwdmngr-modal figure,
+.pwdmngr-modal figcaption,
+.pwdmngr-modal blockquote,
+.pwdmngr-modal dl,
+.pwdmngr-modal dd,
+.pwdmngr-modal a {
+    padding: 0 !important;
+	margin: 0 !important;
+    border: 0 !important;
+
+    line-height: 1.5 !important;
+}
+
+/* Set core body defaults */
+.pwdmngr-modal body {
+	min-height: 100vh !important;
+	scroll-behavior: smooth !important;
+	text-rendering: optimizeSpeed !important;
+	line-height: 1.5 !important;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+.pwdmngr-modal ul[class],
+.pwdmngr-modal ol[class] {
+	list-style: none !important;
+}
+
+/* A elements that don't have a class get default styles */
+.pwdmngr-modal a:not([class]) {
+	text-decoration-skip-ink: auto !important;
+}
+
+/* Make images easier to work with */
+.pwdmngr-modal img {
+	max-width: 100% !important;
+	display: block !important;
+}
+
+/* Make SVG easier to work with */
+.pwdmngr-modal svg {
+    display: inline-block !important;
+}
+
+/* Inherit fonts for inputs and buttons */
+.pwdmngr-modal input,
+.pwdmngr-modal button,
+.pwdmngr-modal textarea,
+.pwdmngr-modal select {
+	font: inherit !important;
+}
+
+/* End reset */
+
+body > div:is(.pwdmngr-modal) {
+    -webkit-font-smoothing: antialiased;
+
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 9999999999;
+
+    display: flex !important;
+    flex-direction: column;
+
+    width: 420px;
+    padding: 0;
+
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+
+    line-height: 1.25rem;
+
+    color: hsl(0, 0%, 16%) !important;
+
+    background: hsl(0, 0%, 100%) !important;
+    border-radius: 6px;
+    box-shadow: 0px 4px 24px -2px rgba(0, 0, 0, 0.08);
+
+    resize: both;
+    overflow: auto;
+    direction: rtl; /* Set resize handler on left */
+}
+
+.pwdmngr-modal .pwdmngr-modal__inner {
+    direction: ltr; /* Set content back to left-to-right */
+}
+
+.pwdmngr-modal .pwdmngr-modal__link {
+    display: flex !important;
+    align-items: center;
+
+    font-family: inherit !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+
+    text-decoration: none !important;
+
+    color: #4094a5;
+}
+
+.pwdmngr-modal .pwdmngr-modal__link-text {
+}
+
+.pwdmngr-modal .pwdmngr-modal__link-icon {
+    margin-left: 4px;
+}
+
+.pwdmngr-modal .pwdmngr-modal__header {
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+
+    padding: 12px 24px;
+
+    color: inherit !important;
+
+    background: rgba(241, 245, 248, 0.9) !important;
+
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    cursor: move;
+}
+
+.pwdmngr-modal .pwdmngr-modal__search {
+    padding:  12px 24px;
+
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+
+    color: inherit !important;
+
+    background: hsl(0, 0%, 100%) !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__search input {
+    background-color: #FFF !important;
+    box-sizing: border-box !important;
+    border-style: solid !important;
+    border-color: rgba(226, 232, 240, 1) !important;
+    font-family: inherit;
+    margin: 0 !important;
+    color: inherit !important;
+    outline-offset: -2px;
+    width: 100% !important;
+    appearance: none !important;
+    border-radius: 0.375rem !important;
+    border-width: 1px !important;
+    padding: 0.375rem 1rem !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: 1.75rem !important;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__search input:focus {
+    outline: 1px solid transparent !important;
+    outline-offset: 1px !important;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px, rgba(59, 130, 246, 0.5) 0px 0px 0px 2px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__search input::placeholder {
+    opacity: 1;
+    color: #cbd5e0;
+}
+
+.pwdmngr-modal .pwdmngr-modal__content {
+    max-height: 400px;
+    overflow: auto;
+
+    margin: auto 0;
+
+    padding:  12px 24px;
+
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+
+    color: inherit !important;
+
+    background: hsl(0, 0%, 100%) !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__footer {
+    display: flex !important;
+    justify-content: flex-end;
+    align-items: center;
+
+    min-width: unset;
+    margin: 0;
+
+    padding:  12px 24px;
+
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+
+    text-align: right;
+
+    color: inherit !important;
+
+    background: rgba(241, 245, 248, 0.9) !important;
+
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.pwdmngr-modal .pwdmngr-modal__close {
+    position: absolute;
+
+    top: 14px;
+    right: 20px;
+
+    width: 24px;
+    height: 24px;
+
+    cursor: pointer;
+}
+
+.pwdmngr-modal .pwdmngr-modal__title {
+    margin: 0 0 0 16px !important;
+
+    font-family: inherit !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+
+    color: inherit !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 !important;
+    padding: 0;
+
+    list-style: none !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__list-heading,
+.pwdmngr-modal .pwdmngr-modal__list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__list-heading {
+    font-family: inherit !important;
+    font-size: 13px !important;
+    font-weight: inherit !important;
+
+
+    color: hsl(0, 0%, 72%) !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__list-item {
+    margin-top: 8px !important;
+
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+
+    color: inherit !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__list-name {
+    width: 56%;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    font-family: inherit !important;
+    font-size: inherit !important;
+
+    color: inherit !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__list-option {
+    width: 20%;
+    margin-left: 16px;
+
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.pwdmngr-modal .pwdmngr-modal__list-option > svg {
+    pointer-events: none;
+}
+
+.pwdmngr-modal .pwdmngr-modal__preloader,
+.pwdmngr-modal .pwdmngr-modal__error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: auto 0 !important;
+    padding: 20px 0 !important;
+
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+
+    text-align: center;
+
+    color: inherit !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__error a {
+    color: rgb(64, 148, 165);
+}
+
+.pwdmngr-modal .pwdmngr-modal__icon {
+    padding: 0 !important;
+}

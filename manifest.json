@@ -1,0 +1,31 @@
+{
+  "name": "Password Manager",
+  "description": "Connect with Password Manager",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "author": "Lito",
+  "icons": {
+    "128": "icon.png"
+  },
+  "action": {
+    "default_title": "Password Manager",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
+}
