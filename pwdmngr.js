@@ -190,7 +190,7 @@
             return;
         }
 
-        this.clipboard(atob(data.value));
+        this.clipboard(this.decode(data.value));
 
         const text = el.innerHTML;
 
@@ -198,6 +198,28 @@
 
         setTimeout(() => el.innerHTML = text, 1000);
     };
+
+    this.decode = function(encoded) {
+        const hex = atob(encoded).split('\\x');
+        let decoded = '';
+
+        for (let i = 0; i < hex.length; i++) {
+            decoded += this.hex2char(hex[i]);
+        }
+
+        return decoded;
+    }
+
+    this.hex2char = function(hex) {
+        const groups = hex.match(/[\s\S]{2}/g) || [];
+        let char = '';
+
+        for (var i = 0, j = groups.length; i < j; i++) {
+            char += '%' + ('0' + groups[i]).slice(-2);
+        }
+
+        return decodeURIComponent(char);
+    }
 
     this.close = function() {
         if (!this.$modal()) {
@@ -281,22 +303,30 @@
     };
 
     this.init = function() {
-        chrome.runtime.onMessage.addListener( (request) => {
-            this.createModal();
-
-            switch (request.action) {
-                case 'init':
-                    this.setConfig(request.content);
-                    this.searchUrl();
-                    break;
-
-                case 'error':
-                    this.showError(request.content, this.ICON_APIKEY);
-                    break;
-            }
-        });
+        chrome.runtime.onMessage.addListener(this.initListener);
 
         this.log('[password-manager] Injected script NEW.');
+    }
+
+    this.initListener = function(request) {
+        if (this.$modal()) {
+            return;
+        }
+
+        this.log('[password-manager] request.action', request.action);
+
+        this.createModal();
+
+        switch (request.action) {
+            case 'init':
+                this.setConfig(request.content);
+                this.searchUrl();
+                break;
+
+            case 'error':
+                this.showError(request.content, this.ICON_APIKEY);
+                break;
+        }
     }
 
     this.init();
