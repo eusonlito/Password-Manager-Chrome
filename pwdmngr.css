@@ -158,7 +158,7 @@ body > div:is(.pwdmngr-modal) {
     cursor: move;
 }
 
-.pwdmngr-modal .pwdmngr-modal__search {
+.pwdmngr-modal .pwdmngr-modal__box {
     padding:  12px 24px;
 
     font-family: inherit !important;
@@ -170,7 +170,7 @@ body > div:is(.pwdmngr-modal) {
     background: hsl(0, 0%, 100%) !important;
 }
 
-.pwdmngr-modal .pwdmngr-modal__search input {
+.pwdmngr-modal .pwdmngr-modal__input {
     background-color: #FFF !important;
     box-sizing: border-box !important;
     border-style: solid !important;
@@ -191,13 +191,13 @@ body > div:is(.pwdmngr-modal) {
     box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px !important;
 }
 
-.pwdmngr-modal .pwdmngr-modal__search input:focus {
+.pwdmngr-modal .pwdmngr-modal__input:focus {
     outline: 1px solid transparent !important;
     outline-offset: 1px !important;
     box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px, rgba(59, 130, 246, 0.5) 0px 0px 0px 2px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px !important;
 }
 
-.pwdmngr-modal .pwdmngr-modal__search input::placeholder {
+.pwdmngr-modal .pwdmngr-modal__input::placeholder {
     opacity: 1;
     color: #cbd5e0;
 }
@@ -362,4 +362,8 @@ body > div:is(.pwdmngr-modal) {
 
 .pwdmngr-modal .pwdmngr-modal__icon {
     padding: 0 !important;
+}
+
+.pwdmngr-modal .pwdmngr-modal__hidden {
+    display: none;
 }

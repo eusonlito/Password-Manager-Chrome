@@ -39,8 +39,20 @@
         return document.getElementById('js-pwdmngr-search');
     }
 
+    this.$searchInput = function() {
+        return document.getElementById('js-pwdmngr-search-input');
+    }
+
     this.$content = function() {
         return document.getElementById('js-pwdmngr-content');
+    }
+
+    this.$apiSecret = function() {
+        return document.getElementById('js-pwdmngr-api-secret');
+    }
+
+    this.$apiSecretInput = function() {
+        return document.getElementById('js-pwdmngr-api-secret-input');
     }
 
     this.showError = function(message, icon) {
@@ -98,6 +110,34 @@
             + `</li>`
     };
 
+    this.showApiSecret = function(item) {
+        this.$search().classList.add('pwdmngr-modal__hidden');
+        this.$content().classList.add('pwdmngr-modal__hidden');
+        this.$apiSecret().classList.remove('pwdmngr-modal__hidden');
+    };
+
+    this.apiSecretInput = function(e) {
+        e.preventDefault();
+
+        const value = this.$apiSecretInput().value;
+
+        if (!value.length) {
+            return;
+        }
+
+        if ((e.code !== 'Enter') && (e.code !== 'NumpadEnter')) {
+            return;
+        }
+
+        this.$apiSecret().classList.add('pwdmngr-modal__hidden');
+        this.$content().classList.remove('pwdmngr-modal__hidden');
+
+        this.apiSearch({
+            api_secret: value,
+            q: this.URL
+        });
+    };
+
     this.request = async function(url, body) {
         this.log('[password-manager] requesting Data');
 
@@ -120,17 +160,25 @@
             return this.showError('Can not load url ' + url + ': ' + text, this.ICON_WARNING);
         }
 
-        if (!response.ok) {
-            return this.showError('Can not load url ' + url + ': ' + data.message + '', this.ICON_WARNING);
+        if (response.ok) {
+            return data;
         }
 
-        return data;
+        if (data.status === 'api_secret_required') {
+            return this.showApiSecret();
+        }
+
+        return this.showError('Can not load url ' + url + ': ' + data.message + '', this.ICON_WARNING);
     };
 
     this.apiSearch = async function(query) {
         this.log('[password-manager] Checking credentials...');
 
-        const data = await this.request(this.ENDPOINT + '/app/api/search', { q: query });
+        if (typeof query === 'string') {
+            query = { q: query };
+        }
+
+        const data = await this.request(this.ENDPOINT + '/app/api/search', query);
 
         if (!data) {
             return;
@@ -148,7 +196,7 @@
     };
 
     this.searchInput = function(e) {
-        const value = this.$search().value;
+        const value = this.$searchInput().value;
 
         if (e.code === 'Escape') {
             return this.apiSearch(this.URL);
@@ -283,8 +331,10 @@
 
         this.$closeBtn().addEventListener('click', e => this.close());
 
-        this.$search().addEventListener('input', e => this.searchInput(e));
-        this.$search().addEventListener('keyup', e => this.searchInput(e));
+        this.$searchInput().addEventListener('input', e => this.searchInput(e));
+        this.$searchInput().addEventListener('keyup', e => this.searchInput(e));
+
+        this.$apiSecretInput().addEventListener('keyup', e => this.apiSecretInput(e));
 
         this.$content().innerHTML = `<div class="pwdmngr-modal__preloader">${ pwdmngrTemplates('PRELOADER') }</div>`;
     };

@@ -1,32 +1,36 @@
-[English](readme.en.md)
+[Spanish](readme.md)
 
-### Extensión de Google Chrome para el Gestor de Contraseñas
+### Google Chrome Extension for Password Manager
 
-Esta extensión se conecta a la aplicación https://github.com/eusonlito/Password-Manager para permitir el acceso a contraseñas directamente desde cualquier sitio web.
+This extension connects to the application https://github.com/eusonlito/Password-Manager to allow access to passwords directly from any website.
 
-Se debe instalar desde el modo desarrollador, ya que no está publicada en el store de extensiones de Chrome.
+It must be installed from developer mode, as it is not published in the Chrome extensions store.
 
-1. Clonamos el repositorio de Github en un directorio local:
+1. Clone the Github repository in a local directory:
 
 ```bash
 git clone https://github.com/eusonlito/Password-Manager-Chrome.git
 ```
 
-2. Vamos a la opción de Chrome `Menú` > `Mas Herramientas` > `Extensiones`
+2. Go to the Chrome option `Menu`>` More Tools`> `Extensions`
 
-3. Arriba a la derecha activamos la opción de `Modo Desarrollador`
+3. At the top right Activate the option of `Developer Mode`
 
-4. Accedemos al nuevo botón de `Cargar Descomprimida`
+4. Access the new button `Load Unpacked`
 
-5. Seleccionamos el directorio que acabamos de clonar.
+5. Select the directory that you have just cloned.
 
-6. En `Endpoint` indicamos la raíz de la web donde tenemos instalado el gestor de contraseñas, por ejemplo `https://password.domain.com`
+6. In `Endpoint` indicate the root of the web where you have installed the password manager, for example `https://password.domain.com`
 
-7. En `API KEY` pegamos la API KEY que podemos generar desde nuestro perfil del gestor de contraseñas.
+7. In `API KEY` paste the API KEY that you can generate from your password manager profile.
 
-8. Guardamos y probamos a pulsar el botón de la aplicación en cualquier web que tengamos dada de alta en el gestor de contraseñas.
+8. Save and try to press the application button on any website that you have registered in the password manager.
 
-### Capturas
+### API KEY Secret
+
+If you have configured the API with `auth.api.secret_enabled` you need to fill the `API KEY Secret` on every IP change.
+
+### Screenshots
 
 ![Password-Manager-Chrome](https://user-images.githubusercontent.com/644551/128035125-32c7521c-aac1-4727-9e1d-be33984b1ac5.png)
 

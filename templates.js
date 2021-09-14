@@ -14,11 +14,15 @@ function pwdmngrTemplates(name) {
                             </a>
                         </header>
 
-                        <div class="pwdmngr-modal__search">
-                            <input type="search" id="js-pwdmngr-search" value="" placeholder="Search..." />
+                        <div id="js-pwdmngr-search" class="pwdmngr-modal__box">
+                            <input type="search" id="js-pwdmngr-search-input" value="" placeholder="Search..." class="pwdmngr-modal__input" />
                         </div>
 
                         <div id="js-pwdmngr-content" class="pwdmngr-modal__content"> ... </div>
+
+                        <div id="js-pwdmngr-api-secret" class="pwdmngr-modal__box pwdmngr-modal__hidden">
+                            <input type="password" id="js-pwdmngr-api-secret-input" value="" placeholder="Your API Secret" class="pwdmngr-modal__input" />
+                        </div>
 
                         <footer class="pwdmngr-modal__footer">
                             <a class="pwdmngr-modal__link" id="js-pwdmngr-webpanel" href="" target="_blank">
