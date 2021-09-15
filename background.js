@@ -1,5 +1,3 @@
-const LOADED = {};
-
 const MSG_INIT = 'init';
 const MSG_ERROR = 'error';
 
@@ -23,16 +21,6 @@ async function storage() {
 }
 
 async function load(tab) {
-    if (LOADED[tab.id] && LOADED[tab.id][tab.url]) {
-        return;
-    }
-
-    if (!LOADED[tab.id]) {
-        LOADED[tab.id] = {};
-    }
-
-    LOADED[tab.id][tab.url] = true;
-
     await chrome.scripting.insertCSS({
         target: { tabId: tab.id },
         files: ['pwdmngr.css']
