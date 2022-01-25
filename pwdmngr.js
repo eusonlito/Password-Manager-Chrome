@@ -104,7 +104,7 @@
 
     this.showCredentialListItem = function(item) {
         return `<li class="pwdmngr-modal__list-item">`
-            + `<span class="pwdmngr-modal__list-name">${ item.name }</span>`
+            + `<span class="pwdmngr-modal__list-name" title="${ item.name }">${ item.name }</span>`
             + `<span class="pwdmngr-modal__list-option" data-credential data-credential-id="${ item.id }" data-credential-type="user">${ pwdmngrTemplates('ICON_COPY') }</span>`
             + `<span class="pwdmngr-modal__list-option" data-credential data-credential-id="${ item.id }" data-credential-type="password">${ pwdmngrTemplates('ICON_COPY') }</span>`
             + `</li>`
