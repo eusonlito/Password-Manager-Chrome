@@ -1,4 +1,4 @@
-[Spanish](readme.md)
+[Spanish](readme.es.md)
 
 ### Google Chrome Extension for Password Manager
 
