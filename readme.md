@@ -2,6 +2,8 @@
 
 ### Google Chrome Extension for Password Manager
 
+Published as Extension in Chrome Web Store: https://chrome.google.com/webstore/detail/eusonlito-password-manage/mkbgfbjaoibojobjpimpkaofckkgknhi
+
 This extension connects to the application https://github.com/eusonlito/Password-Manager to allow access to passwords directly from any website.
 
 It must be installed from developer mode, as it is not published in the Chrome extensions store.
