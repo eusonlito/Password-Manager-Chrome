@@ -1,6 +1,8 @@
-[English](readme.en.md)
+[English](readme.md)
 
 ### Extensión de Google Chrome para el Gestor de Contraseñas
+
+Publicada como Extensión en la Chrome Web Store: https://chrome.google.com/webstore/detail/eusonlito-password-manage/mkbgfbjaoibojobjpimpkaofckkgknhi
 
 Esta extensión se conecta a la aplicación https://github.com/eusonlito/Password-Manager para permitir el acceso a contraseñas directamente desde cualquier sitio web.
 
