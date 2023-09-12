@@ -1,7 +1,7 @@
 {
   "name": "EuSonLito - Password Manager",
   "description": "Easy Connect from Chrome with your own Password Manager Platform",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 3,
   "author": "Lito",
   "icons": {
