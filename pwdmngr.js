@@ -240,11 +240,9 @@
 
         this.clipboard(this.decode(data.value));
 
-        const text = el.innerHTML;
+        el.firstElementChild.classList.add('active');
 
-        el.innerHTML = 'Copied!';
-
-        setTimeout(() => el.innerHTML = text, 1000);
+        setTimeout(() => el.firstElementChild.classList.remove('active'), 1000);
     };
 
     this.decode = function(encoded) {

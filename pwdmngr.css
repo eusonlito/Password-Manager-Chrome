@@ -337,6 +337,14 @@ body > div:is(.pwdmngr-modal) {
     pointer-events: none;
 }
 
+.pwdmngr-modal .pwdmngr-modal__list-option > svg.active {
+    fill: #46b346;
+}
+
+.pwdmngr-modal .pwdmngr-modal__list-option > svg.active path {
+    stroke: white;
+}
+
 .pwdmngr-modal .pwdmngr-modal__preloader,
 .pwdmngr-modal .pwdmngr-modal__error {
     display: flex;
